@@ -1,0 +1,8 @@
+{"id":"retrieval-001","question":"Atlas One is under-extruding and the filament has deep gear marks. What should I inspect?","expected_document_ids":["MNT-004"],"category":"maintenance"}
+{"id":"retrieval-002","question":"PETG is popping and stringing even though the nozzle temperature is unchanged.","expected_document_ids":["MAT-017"],"category":"materials"}
+{"id":"retrieval-003","question":"Northstar Cell reports restricted resin flow before the next exposure cycle.","expected_document_ids":["OPS-009"],"category":"incident-response"}
+{"id":"retrieval-004","question":"How is the failure risk included in a print quote?","expected_document_ids":["QTE-003"],"category":"quoting"}
+{"id":"retrieval-005","question":"The dashboard timed out. Should I restart every Raspberry service?","expected_document_ids":["OPS-014"],"category":"incident-response"}
+{"id":"retrieval-006","question":"The first layer corners are lifting from the build plate.","expected_document_ids":["QLT-006","MAT-017"],"category":"quality"}
+{"id":"retrieval-007","question":"What information belongs in a maintenance intervention record?","expected_document_ids":["MNT-004"],"category":"maintenance"}
+{"id":"retrieval-008","question":"Why should machine runtime not be treated as free in the estimate?","expected_document_ids":["QTE-003"],"category":"quoting"}

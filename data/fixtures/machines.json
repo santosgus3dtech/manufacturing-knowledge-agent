@@ -1,0 +1,47 @@
+[
+  {
+    "id": "atlas-one",
+    "name": "Atlas One",
+    "process": "FDM",
+    "workspace_mm": "300 x 300 x 400",
+    "state": "printing",
+    "health": "healthy",
+    "status_message": "All monitored components are nominal",
+    "nozzle": {"current": 238.4, "target": 240.0},
+    "bed": {"current": 69.8, "target": 70.0},
+    "job": {
+      "reference": "BRKT-4472",
+      "part": "Enclosure bracket",
+      "material": "PETG",
+      "progress_percent": 68,
+      "remaining_minutes": 54
+    },
+    "last_seen": "2026-10-06T13:42:08Z"
+  },
+  {
+    "id": "cedar-mini",
+    "name": "Cedar Mini",
+    "process": "FDM",
+    "workspace_mm": "180 x 180 x 180",
+    "state": "idle",
+    "health": "healthy",
+    "status_message": "Ready for the next job",
+    "nozzle": {"current": 28.1, "target": null},
+    "bed": {"current": 25.6, "target": null},
+    "job": null,
+    "last_seen": "2026-10-06T13:41:54Z"
+  },
+  {
+    "id": "northstar-cell",
+    "name": "Northstar Cell",
+    "process": "SLA",
+    "workspace_mm": "218 x 123 x 250",
+    "state": "attention",
+    "health": "degraded",
+    "status_message": "Resin flow verification is required before the next job",
+    "nozzle": {"current": null, "target": null},
+    "bed": {"current": 27.2, "target": 28.0},
+    "job": null,
+    "last_seen": "2026-10-06T13:41:31Z"
+  }
+]

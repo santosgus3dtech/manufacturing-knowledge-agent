@@ -1,0 +1,50 @@
+[
+  {
+    "id": "MNT-004",
+    "title": "FDM Preventive Maintenance Guide",
+    "domain": "maintenance",
+    "machine_id": "atlas-one",
+    "material": null,
+    "file": "fdm-preventive-maintenance.md"
+  },
+  {
+    "id": "MAT-017",
+    "title": "PETG Material Guidelines",
+    "domain": "materials",
+    "machine_id": null,
+    "material": "PETG",
+    "file": "petg-material-guidelines.md"
+  },
+  {
+    "id": "OPS-009",
+    "title": "Resin Flow Troubleshooting",
+    "domain": "incident-response",
+    "machine_id": "northstar-cell",
+    "material": "Tough Resin",
+    "file": "resin-flow-troubleshooting.md"
+  },
+  {
+    "id": "QTE-003",
+    "title": "Quote Model and Assumptions",
+    "domain": "quoting",
+    "machine_id": null,
+    "material": null,
+    "file": "quote-model.md"
+  },
+  {
+    "id": "OPS-014",
+    "title": "Machine Connectivity Runbook",
+    "domain": "incident-response",
+    "machine_id": null,
+    "material": null,
+    "file": "machine-connectivity-runbook.md"
+  },
+  {
+    "id": "QLT-006",
+    "title": "First-Layer Quality Standard",
+    "domain": "quality",
+    "machine_id": null,
+    "material": null,
+    "file": "first-layer-quality.md"
+  }
+]
