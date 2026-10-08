@@ -1,0 +1,47 @@
+{
+  "asset": "Instagram Story promotional image",
+  "project": "Manufacturing Knowledge Agent",
+  "platform": "Instagram Story",
+  "dimensions": {
+    "width": 1080,
+    "height": 1920,
+    "aspect_ratio": "9:16"
+  },
+  "safe_area": {
+    "top_reserved_px": 250,
+    "bottom_reserved_px": 250,
+    "notes": "Primary copy, product proof, CTA and disclosure remain outside the usual Story UI overlays."
+  },
+  "exports": [
+    {
+      "file": "instagram-story-manufacturing-knowledge-agent.png",
+      "format": "PNG",
+      "sha256": "4C1D3FED849932E31B3713E89F4BAA15BA1A3C04C32301C02D316FAA0BA88DC3"
+    },
+    {
+      "file": "instagram-story-manufacturing-knowledge-agent.jpg",
+      "format": "JPEG",
+      "quality": 95,
+      "sha256": "8A6A1F1DF0FBEAE07A2857C785DCB759911E6F654E695D75BB352915C9D68F52"
+    }
+  ],
+  "source_assets": [
+    {
+      "file": "../screenshots/overview-desktop.png",
+      "role": "verified product interface screenshot"
+    },
+    {
+      "file": "../../frontend/public/machines/atlas-one.png",
+      "role": "repository FDM printer cutout"
+    },
+    {
+      "file": "assets/industrial-background.png",
+      "role": "generated background plate"
+    }
+  ],
+  "composition": {
+    "script": "build_instagram_story.py",
+    "method": "deterministic Pillow composition",
+    "notes": "This 9:16 adaptation preserves the approved copy, verified UI screenshot and project colors while using the repository's Atlas One FDM printer asset."
+  }
+}

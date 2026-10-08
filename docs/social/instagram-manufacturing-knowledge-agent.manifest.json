@@ -1,0 +1,62 @@
+{
+  "asset": "Instagram feed promotional image",
+  "project": "Manufacturing Knowledge Agent",
+  "platform": "Instagram feed",
+  "dimensions": {
+    "width": 1080,
+    "height": 1350,
+    "aspect_ratio": "4:5"
+  },
+  "exports": [
+    {
+      "file": "instagram-manufacturing-knowledge-agent.png",
+      "format": "PNG",
+      "sha256": "7312AEABA0DC9C42AC9080C8FB7411E29C4F8EA1B19E89334C57EEDDBB2806F9"
+    },
+    {
+      "file": "instagram-manufacturing-knowledge-agent.jpg",
+      "format": "JPEG",
+      "quality": 95,
+      "sha256": "91078BBB0CC17D8AB4399253E35DE1F0F80CB25F400BEB59D0DF91F59E3A0F2C"
+    }
+  ],
+  "exact_copy": [
+    "MANUFACTURING KNOWLEDGE AGENT",
+    "OPEN SOURCE",
+    "IA COM EVIDÊNCIAS PARA IMPRESSÃO 3D",
+    "RAG + MCP em um workspace operacional.",
+    "FONTES INSPECIONÁVEIS",
+    "MÁQUINAS",
+    "ORÇAMENTOS",
+    "AVALIAÇÕES",
+    "EXPLORE NO GITHUB",
+    "github.com/santosgus3dtech/manufacturing-knowledge-agent",
+    "INTERFACE REAL",
+    "DEMO DE PORTFÓLIO · DADOS SINTÉTICOS",
+    "PYTHON · FASTAPI · REACT · MCP"
+  ],
+  "source_assets": [
+    {
+      "file": "../screenshots/overview-desktop.png",
+      "role": "verified product interface screenshot"
+    },
+    {
+      "file": "../../frontend/public/machines/northstar-cell.png",
+      "role": "repository printer cutout"
+    },
+    {
+      "file": "assets/industrial-background.png",
+      "role": "generated background plate"
+    }
+  ],
+  "generation": {
+    "route": "built-in image generation",
+    "background_only": true,
+    "prompt_summary": "Dark navy additive-manufacturing studio with restrained green data paths, technical grid, layered contours, calm negative space, no words, logos, UI, people, or watermark."
+  },
+  "composition": {
+    "script": "build_instagram_promo.py",
+    "method": "deterministic Pillow composition",
+    "notes": "All copy, the project mark, the verified screenshot, and the printer cutout are composed after background generation."
+  }
+}
