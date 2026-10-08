@@ -16,19 +16,19 @@
     {
       "file": "instagram-story-manufacturing-knowledge-agent.png",
       "format": "PNG",
-      "sha256": "4C1D3FED849932E31B3713E89F4BAA15BA1A3C04C32301C02D316FAA0BA88DC3"
+      "sha256": "1D79C6D1F53B7862649CBD48A457E734DC9C7DBAB0A68E9F6E3BA2B263554372"
     },
     {
       "file": "instagram-story-manufacturing-knowledge-agent.jpg",
       "format": "JPEG",
       "quality": 95,
-      "sha256": "8A6A1F1DF0FBEAE07A2857C785DCB759911E6F654E695D75BB352915C9D68F52"
+      "sha256": "F575C46564160AB019B84A540C4C502618D8155A9F3D8D2CC993CA1EC70D650D"
     }
   ],
   "source_assets": [
     {
-      "file": "../screenshots/overview-desktop.png",
-      "role": "verified product interface screenshot"
+      "file": "../screenshots/overview-mobile.png",
+      "role": "verified FDM-only mobile interface crop"
     },
     {
       "file": "../../frontend/public/machines/atlas-one.png",
@@ -37,11 +37,36 @@
     {
       "file": "assets/industrial-background.png",
       "role": "generated background plate"
+    },
+    {
+      "file": "assets/github-profile-santosgus3dtech.png",
+      "role": "public GitHub profile avatar",
+      "source_url": "https://github.com/santosgus3dtech"
+    },
+    {
+      "file": "assets/github-mark-white.png",
+      "role": "GitHub mark",
+      "source_url": "https://github.com/primer/octicons/blob/main/icons/mark-github-24.svg"
     }
+  ],
+  "exact_copy": [
+    "MANUFACTURING KNOWLEDGE AGENT",
+    "OPEN SOURCE",
+    "EVIDENCE-GROUNDED AI FOR 3D PRINTING",
+    "RAG + MCP in one operational workspace.",
+    "INSPECTABLE SOURCES",
+    "MACHINES",
+    "QUOTES",
+    "EVALUATIONS",
+    "@SANTOSGUS3DTECH · EXPLORE ON GITHUB",
+    "github.com/santosgus3dtech/manufacturing-knowledge-agent",
+    "FDM DASHBOARD",
+    "PORTFOLIO DEMO · SYNTHETIC DATA",
+    "PYTHON · FASTAPI · REACT · MCP"
   ],
   "composition": {
     "script": "build_instagram_story.py",
     "method": "deterministic Pillow composition",
-    "notes": "This 9:16 adaptation preserves the approved copy, verified UI screenshot and project colors while using the repository's Atlas One FDM printer asset."
+    "notes": "This 9:16 English adaptation preserves the verified FDM UI, Atlas One printer and project colors while adding the public profile avatar and GitHub mark."
   }
 }

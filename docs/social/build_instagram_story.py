@@ -16,7 +16,6 @@ from build_instagram_promo import (
     WHITE,
     cover,
     draw_brand_mark,
-    draw_repo_icon,
     font,
     paste_shadow,
     pill,
@@ -30,8 +29,10 @@ STORY_SIZE = (1080, 1920)
 
 def build_story() -> tuple[Path, Path]:
     background_path = SOCIAL_DIR / "assets" / "industrial-background.png"
-    screenshot_path = ROOT / "docs" / "screenshots" / "overview-desktop.png"
+    screenshot_path = ROOT / "docs" / "screenshots" / "overview-mobile.png"
     printer_path = ROOT / "frontend" / "public" / "machines" / "atlas-one.png"
+    avatar_path = SOCIAL_DIR / "assets" / "github-profile-santosgus3dtech.png"
+    github_mark_path = SOCIAL_DIR / "assets" / "github-mark-white.png"
 
     canvas = cover(Image.open(background_path).convert("RGB"), STORY_SIZE).convert("RGBA")
     canvas.alpha_composite(Image.new("RGBA", STORY_SIZE, (7, 15, 27, 60)))
@@ -62,21 +63,23 @@ def build_story() -> tuple[Path, Path]:
     )
 
     headline = font(FONT_BOLD, 72)
-    draw.text((66, 365), "IA COM EVIDÊNCIAS", font=headline, fill=WHITE)
-    draw.text((66, 448), "PARA IMPRESSÃO", font=headline, fill=WHITE)
-    prefix_width = draw.textlength("PARA IMPRESSÃO ", font=headline)
+    draw.text((66, 365), "EVIDENCE-GROUNDED AI", font=headline, fill=WHITE)
+    draw.text((66, 448), "FOR ", font=headline, fill=WHITE)
+    prefix_width = draw.textlength("FOR ", font=headline)
     draw.text((66 + prefix_width, 448), "3D", font=headline, fill=BRIGHT_GREEN)
+    highlight_width = draw.textlength("3D", font=headline)
+    draw.text((66 + prefix_width + highlight_width, 448), " PRINTING", font=headline, fill=WHITE)
 
     draw.text(
         (69, 548),
-        "RAG + MCP em um workspace operacional.",
+        "RAG + MCP in one operational workspace.",
         font=font(FONT_REGULAR, 29),
         fill=(232, 238, 244, 255),
     )
 
     feature_font = font(FONT_SEMIBOLD, 16)
     cursor_x = 68
-    for label in ("FONTES INSPECIONÁVEIS", "MÁQUINAS", "ORÇAMENTOS", "AVALIAÇÕES"):
+    for label in ("INSPECTABLE SOURCES", "MACHINES", "QUOTES", "EVALUATIONS"):
         width = pill(
             overlay,
             (cursor_x, 610),
@@ -92,14 +95,15 @@ def build_story() -> tuple[Path, Path]:
 
     canvas.alpha_composite(overlay)
 
-    # Preserve the verified product UI exactly; only scale, round, and rotate it.
+    # Preserve a verified crop that shows only the two FDM machines in the mobile UI.
     screenshot = Image.open(screenshot_path).convert("RGB")
-    screenshot = screenshot.resize((920, 613), Image.Resampling.LANCZOS)
+    screenshot = screenshot.crop((0, 328, 390, 765))
+    screenshot = screenshot.resize((590, 661), Image.Resampling.LANCZOS)
     screenshot = rounded_crop(screenshot, 19)
-    card = Image.new("RGBA", (932, 625), (0, 0, 0, 0))
+    card = Image.new("RGBA", (602, 673), (0, 0, 0, 0))
     card_draw = ImageDraw.Draw(card)
     card_draw.rounded_rectangle(
-        (0, 0, 931, 624),
+        (0, 0, 601, 672),
         radius=24,
         fill=(250, 252, 253, 255),
         outline=(255, 255, 255, 220),
@@ -107,31 +111,31 @@ def build_story() -> tuple[Path, Path]:
     )
     card.alpha_composite(screenshot, (6, 6))
     card = card.rotate(-1.15, resample=Image.Resampling.BICUBIC, expand=True)
-    paste_shadow(canvas, card, (41, 842), blur=30, opacity=170, offset=(0, 22))
+    paste_shadow(canvas, card, (64, 842), blur=30, opacity=170, offset=(0, 22))
 
     proof = Image.new("RGBA", STORY_SIZE, (0, 0, 0, 0))
     proof_draw = ImageDraw.Draw(proof)
     proof_draw.rounded_rectangle(
-        (72, 835, 270, 877),
+        (72, 835, 248, 877),
         radius=20,
         fill=(20, 32, 51, 245),
         outline=(255, 255, 255, 60),
         width=1,
     )
     proof_draw.ellipse((88, 851, 96, 859), fill=BRIGHT_GREEN)
-    proof_draw.text((108, 844), "INTERFACE REAL", font=font(FONT_SEMIBOLD, 14), fill=WHITE)
+    proof_draw.text((108, 844), "FDM DASHBOARD", font=font(FONT_SEMIBOLD, 14), fill=WHITE)
     canvas.alpha_composite(proof)
 
     printer = Image.open(printer_path).convert("RGBA")
     alpha_bbox = printer.getchannel("A").getbbox()
     if alpha_bbox:
         printer = printer.crop(alpha_bbox)
-    target_h = 465
+    target_h = 520
     printer = printer.resize(
         (round(printer.width * target_h / printer.height), target_h),
         Image.Resampling.LANCZOS,
     )
-    paste_shadow(canvas, printer, (648, 1118), blur=28, opacity=165, offset=(-8, 19))
+    paste_shadow(canvas, printer, (560, 1020), blur=28, opacity=165, offset=(-8, 19))
 
     # CTA and disclosure end above the reply/link controls at the bottom of Stories.
     cta = Image.new("RGBA", STORY_SIZE, (0, 0, 0, 0))
@@ -143,12 +147,31 @@ def build_story() -> tuple[Path, Path]:
         outline=(80, 202, 126, 155),
         width=2,
     )
-    draw_repo_icon(cta_draw, (86, 708))
-    cta_draw.text((151, 695), "EXPLORE NO GITHUB", font=font(FONT_SEMIBOLD, 16), fill=(208, 244, 220, 255))
+    github_mark = Image.open(github_mark_path).convert("RGBA").resize((44, 44), Image.Resampling.LANCZOS)
+    cta.alpha_composite(github_mark, (84, 710))
+
+    avatar = Image.open(avatar_path).convert("RGB").resize((62, 62), Image.Resampling.LANCZOS)
+    avatar_mask = Image.new("L", avatar.size, 0)
+    ImageDraw.Draw(avatar_mask).ellipse((0, 0, 61, 61), fill=255)
+    avatar_rgba = avatar.convert("RGBA")
+    avatar_rgba.putalpha(avatar_mask)
+    avatar_lockup = Image.new("RGBA", (70, 70), (0, 0, 0, 0))
+    avatar_draw = ImageDraw.Draw(avatar_lockup)
+    avatar_draw.ellipse((0, 0, 69, 69), fill=(255, 255, 255, 235))
+    avatar_draw.ellipse((3, 3, 66, 66), fill=(24, 134, 75, 255))
+    avatar_lockup.alpha_composite(avatar_rgba, (4, 4))
+    cta.alpha_composite(avatar_lockup, (132, 697))
+
     cta_draw.text(
-        (151, 724),
+        (218, 695),
+        "@SANTOSGUS3DTECH · EXPLORE ON GITHUB",
+        font=font(FONT_SEMIBOLD, 15),
+        fill=(208, 244, 220, 255),
+    )
+    cta_draw.text(
+        (218, 724),
         "github.com/santosgus3dtech/manufacturing-knowledge-agent",
-        font=font(FONT_SEMIBOLD, 22),
+        font=font(FONT_SEMIBOLD, 19),
         fill=WHITE,
     )
     cta_draw.text((974, 716), "→", font=font(FONT_SEMIBOLD, 28), fill=WHITE, anchor="mm")
@@ -156,7 +179,7 @@ def build_story() -> tuple[Path, Path]:
     cta_draw.ellipse((67, 1652, 77, 1662), fill=AMBER)
     cta_draw.text(
         (91, 1644),
-        "DEMO DE PORTFÓLIO · DADOS SINTÉTICOS",
+        "PORTFOLIO DEMO · SYNTHETIC DATA",
         font=font(FONT_SEMIBOLD, 15),
         fill=MUTED,
     )
