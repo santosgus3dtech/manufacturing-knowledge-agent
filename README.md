@@ -1,5 +1,7 @@
 # Manufacturing Knowledge Agent
 
+🇧🇷 [Leia este README em Português (Brasil)](README.pt-BR.md).
+
 [![CI](https://github.com/santosgus3dtech/manufacturing-knowledge-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/santosgus3dtech/manufacturing-knowledge-agent/actions/workflows/ci.yml)
 [![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB)](https://www.python.org/)
 [![MCP](https://img.shields.io/badge/MCP-tools%20%2B%20resources-18864B)](https://modelcontextprotocol.io/)
