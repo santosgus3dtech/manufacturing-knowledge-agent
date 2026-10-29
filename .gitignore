@@ -17,3 +17,5 @@ build/
 Thumbs.db
 runtime/
 docs/screenshots/*.tmp.png
+/docs/.obsidian/
+/docs/.trash/
